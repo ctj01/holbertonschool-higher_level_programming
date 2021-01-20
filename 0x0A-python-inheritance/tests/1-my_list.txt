@@ -100,4 +100,4 @@ One Number
      >>> print(my_list)
      [1]
      >>> my_list.print_sorted()
-     [1] 
+     [1]
