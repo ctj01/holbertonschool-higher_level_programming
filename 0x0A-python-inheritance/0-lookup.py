@@ -5,4 +5,7 @@ lookup definition
 
 
 def lookup(obj):
+    """
+    lookup implementation
+    """
     return dir(obj)

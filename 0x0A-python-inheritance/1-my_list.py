@@ -9,4 +9,7 @@ class MyList(list):
     MyList implementation
     """
     def print_sorted(self):
+        """
+        print_sorted implementation
+        """
         print(sorted(self))
