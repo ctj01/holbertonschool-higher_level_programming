@@ -12,5 +12,5 @@ def read_file(filename=""):
     """
     encoding = "utf-8"
     with open(filename, "r", encoding=encoding) as file:
-        print(file.read())
+        print(file.readlines())
         file.close()
