@@ -4,9 +4,6 @@ rectangle class definition
 """
 
 from models.base import Base
-import sys
-import  os
-sys.path.insert(1, os.getcwd())
 
 
 def check_values(atributte, value):
