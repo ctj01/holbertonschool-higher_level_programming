@@ -3,7 +3,7 @@
 square class definition
 """
 from models.rectangle import Rectangle
-
+import  re
 def check_values(atributte, value):
     """
     handling erros
@@ -34,6 +34,19 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
 
         super().__init__(size, size, x, y, id)
+
+    def to_dictionary(self):
+        x = {}
+        a = self.__dict__
+        s = ""
+
+        if a:
+            for key in a:
+                s = re.sub('_Rectangle__', '', key)
+                if s == 'width' or s == 'height':
+                    s = "size"
+                x[s] = a[key]
+            return x
 
     def __str__(self):
         """
