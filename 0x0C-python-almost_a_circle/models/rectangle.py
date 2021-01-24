@@ -4,9 +4,20 @@ rectangle class definition
 """
 
 from models.base import Base
-
+import re
 
 def check_values(atributte, value):
+    """
+        handling error
+    Args:
+        atributte ([type]): [atribbute to check]
+        value ([type]): [integer]
+
+    Raises:
+        TypeError: [error]
+        ValueError: [description]
+        ValueError: [description]
+    """
     x = {'height' : int,
         'width' : int,
         }
@@ -39,6 +50,7 @@ class Rectangle(Base):
 
     def display(self):
         """draw the rectangle"""
+
         iterator = False
         if self.area() == 0:
             print('')
@@ -54,6 +66,30 @@ class Rectangle(Base):
                 iterator = True
                 print("#", end='')
         print()
+
+    def update(self, *args, **kwargs):
+        """
+        updating attributes
+        """
+        if args:
+            attributes = ['id', 'width', 'height', 'x', 'y']
+            for iterator, value in enumerate(args):
+                setattr(self, attributes[iterator], value)
+            return
+        for args in kwargs:
+            if hasattr(self, args):
+                setattr(self, args, kwargs[args])
+
+    def to_dictionary(self):
+        x = {}
+        a = self.__dict__
+        s = ""
+
+        if a:
+            for key in a:
+                s = re.sub('_Rectangle__', '', key)
+                x[s] = a[key]
+            return x
 
     def __str__(self):
         """
