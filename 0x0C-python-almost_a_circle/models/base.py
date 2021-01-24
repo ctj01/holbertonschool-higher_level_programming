@@ -49,7 +49,7 @@ class Base:
         with open(cls.__name__ + '.json', 'w+', encoding='utf-8') as f:
             f.write(cls.to_json_string(l_objects))
         f.close()
-    
+
     @staticmethod
     def from_json_string(json_string):
         """[returns the list of the JSON string]

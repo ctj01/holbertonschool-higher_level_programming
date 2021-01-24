@@ -23,11 +23,11 @@ def check_values(atributte, value):
         'width' : int,
         }
     if type(value) != int:
-        raise  TypeError("{} must be an integer".format(value))
+        raise  TypeError("{} must be an integer".format(atributte))
     if (atributte in x) and value <= 0:
-        raise ValueError("{} must be > 0".format(value))
+        raise ValueError("{} must be > 0".format(atributte))
     elif  value < 0:
-        raise ValueError("{} must be >= 0".format(value))
+        raise ValueError("{} must be >= 0".format(atributte))
 
 class Rectangle(Base):
     """
