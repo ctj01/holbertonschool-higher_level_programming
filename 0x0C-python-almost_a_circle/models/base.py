@@ -30,7 +30,7 @@ class Base:
             return "[]"
         for d in list_dictionaries:
             if type(d) != dict:
-                raise  TypeError("list_dictionaries must be a dictionary")
+                raise TypeError("list_dictionaries must be a dictionary")
         return json.dumps(list_dictionaries)
 
     @classmethod

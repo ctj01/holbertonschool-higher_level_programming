@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+
 """
 rectangle class definition
 """
-
 from models.base import Base
 import re
 
@@ -10,31 +10,26 @@ import re
 def check_values(atributte, value):
     """
         handling error
-    Args:
-        atributte ([type]): [atribbute to check]
-        value ([type]): [integer]
-
-    Raises:
-        TypeError: [error]
-        ValueError: [description]
-        ValueError: [description]
     """
-    x = {'height' : int,
-        'width' : int,
-        }
+    x = {
+        'height': int,
+        'width': int
+                    }
+
     if type(value) != int:
-        raise  TypeError("{} must be an integer".format(atributte))
+        raise TypeError("{} must be an integer".format(atributte))
     if (atributte in x) and value <= 0:
         raise ValueError("{} must be > 0".format(atributte))
-    elif  value < 0:
+    elif value < 0:
         raise ValueError("{} must be >= 0".format(atributte))
+
 
 class Rectangle(Base):
     """
-
     Args:
-        Base ([type]): [description]
+        Base ([type]):[description]
     """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """initialize the attributtes."""
 
@@ -82,6 +77,9 @@ class Rectangle(Base):
                 setattr(self, args, kwargs[args])
 
     def to_dictionary(self):
+        """
+        to dictionary method
+        """
         x = {}
         a = self.__dict__
         s = ""
@@ -128,19 +126,16 @@ class Rectangle(Base):
         """getter x."""
         return self.__x
 
-
     @x.setter
     def x(self, value):
         """settter x."""
         check_values('x', value)
         self.__x = value
 
-
     @property
     def y(self):
         """getter y."""
         return self.__y
-
 
     @y.setter
     def y(self, value):

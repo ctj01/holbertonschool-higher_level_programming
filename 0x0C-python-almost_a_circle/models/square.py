@@ -3,7 +3,6 @@
 square class definition
 """
 from models.rectangle import Rectangle
-import  re
 
 
 def check_values(atributte, value):
@@ -16,16 +15,18 @@ def check_values(atributte, value):
     Returns:
         [type]: [description]
     """
-    atrr = { 'width' : int,
-            'height' : int
-            }
+    atrr = {
+        'width': int,
+        'height': int
+                    }
 
     if type(value) != int:
-        raise  TypeError("{} must be an integer".format(value))
+        raise TypeError("{} must be an integer".format(value))
     if (atributte in atrr) and value <= 0:
         raise ValueError("{} must be > 0".format(value))
-    elif  value < 0:
+    elif value < 0:
         raise ValueError("{} must be >= 0".format(value))
+
 
 class Square(Rectangle):
     """
@@ -79,7 +80,6 @@ class Square(Rectangle):
             [type]: [description]
         """
         return self.width
-
 
     @size.setter
     def size(self, value):
