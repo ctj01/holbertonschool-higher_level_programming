@@ -69,7 +69,7 @@ class Base:
         """
         if cls.__name__ == 'Square':
             new_instances = cls(1)
-        else:
+        elif cls.__name__ == 'Rectangle':
             new_instances = cls(1, 1)
         new_instances.update(**dictionary)
         return new_instances

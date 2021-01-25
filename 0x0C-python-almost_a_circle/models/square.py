@@ -34,17 +34,18 @@ class Square(Rectangle):
         Rectangle ([type]): [description]
     """
     def __init__(self, size, x=0, y=0, id=None):
-
         super().__init__(size, size, x, y, id)
+        self.size = size
 
     def to_dictionary(self):
         x = {}
         a = self.__dict__
         s = ""
-
         if a:
             for key in a:
-                s = re.sub('_Rectangle__', '', key)
+                s = key
+                if key.startswith('_'):
+                    s = key[12:]
                 if s == 'width' or s == 'height':
                     s = "size"
                 x[s] = a[key]
@@ -88,5 +89,5 @@ class Square(Rectangle):
             value ([type]): [description]
         """
         check_values('width', value)
-        self.__width = value
-        self.__height = value
+        self.width = value
+        self.height = value

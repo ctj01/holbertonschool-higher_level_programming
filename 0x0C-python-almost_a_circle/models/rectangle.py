@@ -88,7 +88,9 @@ class Rectangle(Base):
 
         if a:
             for key in a:
-                s = re.sub('_Rectangle__', '', key)
+                s = key
+                if key.startswith('_'):
+                    s = key[12:]
                 x[s] = a[key]
             return x
 
