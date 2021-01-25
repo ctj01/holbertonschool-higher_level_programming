@@ -62,9 +62,7 @@ class Test_ClassRectangle(TestCase):
         r1.display()
         sys.stdout = sys.__stdout__
         assert  out.getvalue() == '####\n' * 6
-        r2 = Rectangle(2, 3, 2, 2)
-        r2.display()
-        assert out.getvalue() == '\n' * 2 + ' ##\n' * 3
+        sys.stdout.flush()
 
     def test_str(self):
         """
