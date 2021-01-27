@@ -35,10 +35,23 @@ class Square(Rectangle):
         Rectangle ([type]): [description]
     """
     def __init__(self, size, x=0, y=0, id=None):
+        """initializing constructor
+
+        Args:
+            size ([type]): [description]
+            x (int, optional): [description]. Defaults to 0.
+            y (int, optional): [description]. Defaults to 0.
+            id ([type], optional): [description]. Defaults to None.
+        """
         super().__init__(size, size, x, y, id)
         self.size = size
 
     def to_dictionary(self):
+        """parse to dictionary
+
+        Returns:
+            [type]: [description]
+        """
         x = {}
         a = self.__dict__
         s = ""
