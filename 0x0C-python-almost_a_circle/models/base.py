@@ -4,6 +4,7 @@ class base definition
 """
 import json
 import os
+import csv
 
 
 class Base:
@@ -32,6 +33,38 @@ class Base:
             if type(d) != dict:
                 raise TypeError("list_dictionaries must be a dictionary")
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        deserializate csv
+        Returns:
+            [type]: [description]
+        """
+        deserialize = []
+        serialize = []
+        filename = cls.__name__ + '.csv'
+        if not os.path.exists(filename):
+            return []
+        with open(filename, "r", encoding='utf-8') as file:
+            serialize = csv.DictReader(file.read())
+        for d in serialize:
+            deserialize.append(cls.create(**d))
+        return deserialize
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save csv format"""
+        serialize = []
+        filename = cls.__name__ + '.csv'
+        if not list_objs or list_objs is None:
+            serialize = []
+        else:
+            serialize = [item.to_dictionary() for item in list_objs]
+        with open(filename, 'w+', encoding='utf-8') as file:
+            w = csv.writer(
+                file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            w.writerow([serialize])
 
     @classmethod
     def save_to_file(cls, list_objs):

@@ -4,7 +4,7 @@
 This test is for the Rectangle class
 Type: Unittest
 """
-from unittest import  TestCase, main
+from unittest import TestCase
 from models.base import Base as B
 from models.rectangle import Rectangle
 from io import StringIO
@@ -24,20 +24,32 @@ class Test_ClassRectangle(TestCase):
         """
         B._Base__nb_objects = 0
 
-        Reca = Rectangle(5 , 6)
+        Reca = Rectangle(5, 6)
         self.assertEqual(Reca.id, 1)
 
-        Recb = Rectangle(4, 6 , 9 , 8 ,8)
+        Recb = Rectangle(4, 6, 9, 8, 8)
         self.assertEqual(Recb.id, 8)
 
-    def  test_exceptions(self):
+    def test_exceptions(self):
         """
         testing exceptions
         """
         B._Base__nb_objects = 0
-        self.assertRaisesRegex(TypeError, "height must be an integer", Rectangle, 1, "u")
-        self.assertRaisesRegex(TypeError, "y must be an integer", Rectangle, 1, 2, 8, "y")
-        self.assertRaisesRegex(ValueError, "width must be > 0", Rectangle, 0, 2)
+        self.assertRaisesRegex(
+                TypeError,
+                "height must be an integer",
+                Rectangle, 1, "u"
+                )
+        self.assertRaisesRegex(
+                TypeError,
+                "y must be an integer",
+                Rectangle, 1, 2, 8, "y"
+                )
+        self.assertRaisesRegex(
+                ValueError,
+                "width must be > 0",
+                Rectangle, 0, 2
+                )
 
     def test_area(self):
         """
@@ -61,7 +73,7 @@ class Test_ClassRectangle(TestCase):
         r1 = Rectangle(4, 6)
         r1.display()
         sys.stdout = sys.__stdout__
-        assert  out.getvalue() == '####\n' * 6
+        assert out.getvalue() == '####\n' * 6
         sys.stdout.flush()
 
     def test_str(self):
