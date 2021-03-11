@@ -1,17 +1,13 @@
 #!/usr/bin/python3
-"""
-is the same class definition
+"""is_same_class
 """
 
 
 def is_same_class(obj, a_class):
+    """Returns True if obj is same instance, else False
     """
 
-    Args:
-        obj ([obj]): [description]
-        a_class ([a_class]): [description]
-
-    Returns:
-        [Bool]: [true or false]
-    """
-    return type(obj) == a_class
+    if type(obj) is a_class:
+        return True
+    else:
+        return False

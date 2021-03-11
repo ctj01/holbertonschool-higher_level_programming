@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-from sys import argv
 if __name__ == "__main__":
-    ar = len(argv[1:])
-    addtion = 0
-    for args in argv[1:]:
-        if ar > 0:
-            addtion += int(args)
-    print(addtion)
+    import sys
+    argv = sys.argv[1:]
+    argv_count = len(argv)
+    index = 1
+    res = 0
+    while index <= argv_count:
+        res += int(sys.argv[index])
+        index += 1
+    print("{:d}".format(res))

@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-import pythonmsn
+exec('import subprocess; subprocess.call(["echo", "#pythoniscool"])')

@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    if a_dictionary is None or a_dictionary == {}:
+    if not a_dictionary:
         return None
-    keys = list(a_dictionary.keys())
-    m = keys[0]
-    for i in keys:
-        m = i if a_dictionary[i] > a_dictionary[m] else m
-    return m
+    biggest = 0
+    for key, value in a_dictionary.items():
+        if value > biggest:
+            biggest = value
+    for key, value in a_dictionary.items():
+        if value == biggest:
+            return key

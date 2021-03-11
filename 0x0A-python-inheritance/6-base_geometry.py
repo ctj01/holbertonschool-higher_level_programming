@@ -1,19 +1,14 @@
 #!/usr/bin/python3
-"""
-is a BaseGeometry class definition
+"""BaseGeometry
 """
 
 
 class BaseGeometry:
+    """Contains a function area()
     """
-    BaseGeometry class implementation
-    """
-    pass
 
     def area(self):
-        """[summary]
-
-        Raises:
-            Exception: area no implemented
+        """Function not implemented yet
         """
+
         raise Exception("area() is not implemented")

@@ -1,30 +1,22 @@
 #include "lists.h"
 /**
- * is_palindrome - is palindrome
- * @head: head node
- * Return: 1 if palindrome, 0 otherwise
+ * is_palindrome - checks if palindrome
+ * @head: head of node
+ * Return: 0 if not, 1 if is
  */
 int is_palindrome(listint_t **head)
 {
-        listint_t *aux = *head;
-        int data[150], i = 0, d = 0;
+	unsigned int len = 1;
+	listint_t *temp;
 
-        if (!*head || !head || !aux->next)
-                return (1);
+	if (head == NULL|| *head == NULL)
+		return (1);
 
-        while (aux)
-        {
-            data[i] = aux->n;
-            i++;
-            aux = aux->next;
-        }
-        i--;
-        while (d <= i)
-        {
-            if(data[d] != data[i])
-                return (0);
-            d++;
-            i--;
-        }
-        return (1);
+	temp = *head;
+	while (temp) /* get len of list */
+	{
+		temp = temp->next;
+		len++;
+	}
+	return (0);
 }
